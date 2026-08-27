@@ -1,0 +1,22 @@
+{
+  "error": "no hand labels found -- run `python -m src.run label` first",
+  "n_labeled_schools": 0,
+  "intra_rater": {
+    "n_schools": 0,
+    "note": "no re-labelled schools yet; run `label --relabel`"
+  },
+  "api_status": {
+    "available": [],
+    "configured_but_missing_key": [
+      "gemini",
+      "nvidia",
+      "groq",
+      "openrouter"
+    ],
+    "logprob_support_observed": {},
+    "cache": {
+      "hits": 0,
+      "misses": 0
+    }
+  }
+}

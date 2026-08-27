@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+logs/
+*.egg-info/
+.pytest_cache/
+
+# Labels are the reviewer's own to produce; mine are committed deliberately
+# (see README) but the browser's working copy is not.
+labels/label_tool.html
+
+# NOT ignored, on purpose:
+#   cache/  -- committed so the pipeline reproduces with no keys and no network
+#   preds/  -- committed so Stage C reproduces without a GPU
+# These two directories are what make `python -m src.run --offline stage-c`
+# work from a clean checkout. Excluding them would break the primary
+# reproduction path.
+
+# The assignment brief is the professor's document, not mine to republish.
+take_home_task.pdf

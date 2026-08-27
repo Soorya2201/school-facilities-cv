@@ -1,0 +1,113 @@
+{
+ "version": 0.6,
+ "generator": "Overpass API 0.7.62.4 2390de5a",
+ "osm3s": {
+  "timestamp_osm_base": "2026-08-27T09:37:51Z",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+ },
+ "elements": [
+  {
+   "type": "way",
+   "id": 1023813120,
+   "bounds": {
+    "minlat": 33.787361,
+    "minlon": -82.4918608,
+    "maxlat": 33.7934741,
+    "maxlon": -82.486565
+   },
+   "geometry": [
+    {
+     "lat": 33.7934741,
+     "lon": -82.4899639
+    },
+    {
+     "lat": 33.7921902,
+     "lon": -82.4874834
+    },
+    {
+     "lat": 33.7913842,
+     "lon": -82.4878096
+    },
+    {
+     "lat": 33.7908848,
+     "lon": -82.486565
+    },
+    {
+     "lat": 33.787361,
+     "lon": -82.4880413
+    },
+    {
+     "lat": 33.7884952,
+     "lon": -82.4918608
+    },
+    {
+     "lat": 33.7934741,
+     "lon": -82.4899639
+    }
+   ],
+   "tags": {
+    "amenity": "school"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1023813121,
+   "bounds": {
+    "minlat": 33.7948151,
+    "minlon": -82.4933371,
+    "maxlat": 33.7977324,
+    "maxlon": -82.4905132
+   },
+   "geometry": [
+    {
+     "lat": 33.7948151,
+     "lon": -82.4922084
+    },
+    {
+     "lat": 33.795375,
+     "lon": -82.4933371
+    },
+    {
+     "lat": 33.7966197,
+     "lon": -82.4925775
+    },
+    {
+     "lat": 33.7971012,
+     "lon": -82.4930581
+    },
+    {
+     "lat": 33.7977324,
+     "lon": -82.4926118
+    },
+    {
+     "lat": 33.7976432,
+     "lon": -82.4920668
+    },
+    {
+     "lat": 33.7974756,
+     "lon": -82.4916805
+    },
+    {
+     "lat": 33.7974257,
+     "lon": -82.4910325
+    },
+    {
+     "lat": 33.7974899,
+     "lon": -82.490878
+    },
+    {
+     "lat": 33.7973187,
+     "lon": -82.4905132
+    },
+    {
+     "lat": 33.7948151,
+     "lon": -82.4922084
+    }
+   ],
+   "tags": {
+    "amenity": "school"
+   }
+  }
+ ],
+ "_served_by": "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
+}

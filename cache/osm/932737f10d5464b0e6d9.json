@@ -1,0 +1,149 @@
+{
+ "version": 0.6,
+ "generator": "Overpass API 0.7.62.4 2390de5a",
+ "osm3s": {
+  "timestamp_osm_base": "2026-08-27T09:37:51Z",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+ },
+ "elements": [
+  {
+   "type": "way",
+   "id": 897701512,
+   "bounds": {
+    "minlat": 46.2631638,
+    "minlon": -95.0626399,
+    "maxlat": 46.2642232,
+    "maxlon": -95.0615245
+   },
+   "geometry": [
+    {
+     "lat": 46.2641417,
+     "lon": -95.0626399
+    },
+    {
+     "lat": 46.2641438,
+     "lon": -95.0618546
+    },
+    {
+     "lat": 46.2642228,
+     "lon": -95.061855
+    },
+    {
+     "lat": 46.2642232,
+     "lon": -95.0616866
+    },
+    {
+     "lat": 46.2636277,
+     "lon": -95.0616834
+    },
+    {
+     "lat": 46.2636281,
+     "lon": -95.061526
+    },
+    {
+     "lat": 46.2633313,
+     "lon": -95.0615245
+    },
+    {
+     "lat": 46.263331,
+     "lon": -95.0616439
+    },
+    {
+     "lat": 46.2632059,
+     "lon": -95.0616433
+    },
+    {
+     "lat": 46.2632043,
+     "lon": -95.062315
+    },
+    {
+     "lat": 46.2631647,
+     "lon": -95.0623148
+    },
+    {
+     "lat": 46.2631638,
+     "lon": -95.0626345
+    },
+    {
+     "lat": 46.2641417,
+     "lon": -95.0626399
+    }
+   ],
+   "tags": {
+    "addr:city": "Bertha",
+    "addr:housenumber": "310",
+    "addr:postcode": "56437",
+    "addr:state": "MN",
+    "addr:street": "Central Avenue",
+    "building": "school",
+    "name": "Bertha Secondary"
+   }
+  },
+  {
+   "type": "way",
+   "id": 897701513,
+   "bounds": {
+    "minlat": 46.2624695,
+    "minlon": -95.0620029,
+    "maxlat": 46.2630473,
+    "maxlon": -95.0612819
+   },
+   "geometry": [
+    {
+     "lat": 46.2630442,
+     "lon": -95.0620029
+    },
+    {
+     "lat": 46.2630473,
+     "lon": -95.0612833
+    },
+    {
+     "lat": 46.2628989,
+     "lon": -95.0612819
+    },
+    {
+     "lat": 46.2628987,
+     "lon": -95.0613199
+    },
+    {
+     "lat": 46.26258,
+     "lon": -95.0613169
+    },
+    {
+     "lat": 46.2625797,
+     "lon": -95.0613634
+    },
+    {
+     "lat": 46.2625013,
+     "lon": -95.0613626
+    },
+    {
+     "lat": 46.2624992,
+     "lon": -95.0618322
+    },
+    {
+     "lat": 46.2624702,
+     "lon": -95.061832
+    },
+    {
+     "lat": 46.2624695,
+     "lon": -95.0619976
+    },
+    {
+     "lat": 46.2630442,
+     "lon": -95.0620029
+    }
+   ],
+   "tags": {
+    "addr:city": "Bertha",
+    "addr:housenumber": "408",
+    "addr:postcode": "56437",
+    "addr:state": "MN",
+    "addr:street": "Central Avenue",
+    "building": "school",
+    "name": "Bertha Elementary"
+   }
+  }
+ ],
+ "_served_by": "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
+}

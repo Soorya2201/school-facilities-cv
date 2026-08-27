@@ -1,0 +1,13 @@
+# Core pipeline (Stage A and Stage C). These alone reproduce measurements.csv.
+requests>=2.31
+numpy>=1.24
+Pillow>=10.0
+opencv-python>=4.8
+scikit-learn>=1.3
+matplotlib>=3.7
+
+# Stage B (GPU, CARC) only. Not needed to reproduce the committed results.
+# torch>=2.4
+# transformers>=4.45
+# huggingface_hub>=0.24
+# vllm>=0.6           # required for token logprobs

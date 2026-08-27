@@ -1,0 +1,91 @@
+{
+ "version": 0.6,
+ "generator": "Overpass API 0.7.62.4 2390de5a",
+ "osm3s": {
+  "timestamp_osm_base": "2026-08-27T09:36:50Z",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+ },
+ "elements": [
+  {
+   "type": "way",
+   "id": 456446010,
+   "bounds": {
+    "minlat": 33.3120226,
+    "minlon": -85.4936387,
+    "maxlat": 33.3122142,
+    "maxlon": -85.4933973
+   },
+   "geometry": [
+    {
+     "lat": 33.3122142,
+     "lon": -85.4935811
+    },
+    {
+     "lat": 33.3121661,
+     "lon": -85.4933973
+    },
+    {
+     "lat": 33.312082,
+     "lon": -85.4934242
+    },
+    {
+     "lat": 33.312101,
+     "lon": -85.4935006
+    },
+    {
+     "lat": 33.3120226,
+     "lon": -85.4935315
+    },
+    {
+     "lat": 33.3120495,
+     "lon": -85.4936387
+    },
+    {
+     "lat": 33.3122142,
+     "lon": -85.4935811
+    }
+   ],
+   "tags": {
+    "amenity": "place_of_worship",
+    "building": "yes",
+    "religion": "christian"
+   }
+  },
+  {
+   "type": "way",
+   "id": 1274700333,
+   "bounds": {
+    "minlat": 33.3115287,
+    "minlon": -85.4956366,
+    "maxlat": 33.3117403,
+    "maxlon": -85.4953877
+   },
+   "geometry": [
+    {
+     "lat": 33.311584,
+     "lon": -85.4956366
+    },
+    {
+     "lat": 33.3117403,
+     "lon": -85.4955679
+    },
+    {
+     "lat": 33.311685,
+     "lon": -85.4953877
+    },
+    {
+     "lat": 33.3115287,
+     "lon": -85.4954564
+    },
+    {
+     "lat": 33.311584,
+     "lon": -85.4956366
+    }
+   ],
+   "tags": {
+    "barrier": "fence"
+   }
+  }
+ ],
+ "_served_by": "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
+}
