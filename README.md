@@ -25,6 +25,32 @@ consumes.
 
 ---
 
+## On USC CARC
+
+```bash
+git clone https://github.com/Soorya2201/school-facilities-cv.git
+cd school-facilities-cv
+bash slurm/setup_carc.sh          # conda env + deps + verifies the offline path
+source .env.carc                  # in every new shell afterwards
+```
+
+`setup_carc.sh` puts the HuggingFace cache and the imagery cache under
+`/scratch1/$USER` rather than `$HOME`, because the home quota is small and the
+model weights are tens of gigabytes. It finishes by running the offline
+reproduction and the test suite, so a successful run means the checkout is good.
+
+Then either stage separately, or chain all three:
+
+```bash
+sbatch slurm/stage_a.sh           # CPU + internet: imagery, OSM, weight staging
+sbatch slurm/stage_b.sh           # GPU, offline: array over model families
+sbatch slurm/stage_c.sh           # CPU: fuse, calibrate, write outputs
+# or
+bash slurm/submit_all.sh          # all three with dependencies
+```
+
+---
+
 ## Full pipeline
 
 ### Stage A — fetch and deterministic extraction (CPU, needs internet)
