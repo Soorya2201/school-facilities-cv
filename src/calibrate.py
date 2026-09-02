@@ -25,8 +25,21 @@ from .fuse import FEATURE_NAMES
 # --------------------------------------------------------------------------- #
 # Scoring a prediction against a label
 # --------------------------------------------------------------------------- #
+# Fields where "left empty" is an answer rather than a gap. A blank fence
+# material means no identifiable material was seen -- which is the usual case,
+# since nadir imagery cannot resolve what a fence is made of. Treating blank as
+# unlabelled instead would drop almost every school from this field's n.
+BLANK_MEANS_NONE = {"fencing_type"}
+
+
+def _blank_as_none(v: Any) -> str:
+    return "none" if v is None or str(v).strip() == "" else str(v).strip().lower()
+
+
 def is_correct(field: str, predicted: Any, truth: Any) -> Optional[bool]:
     """Whether a prediction counts as correct. None means "not scoreable"."""
+    if field in BLANK_MEANS_NONE:
+        return _blank_as_none(predicted) == _blank_as_none(truth)
     if truth is None or (isinstance(truth, str) and truth.strip() == ""):
         return None
     if predicted is None:

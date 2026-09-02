@@ -83,6 +83,12 @@ def cmd_stage_c(args) -> int:
     return 0
 
 
+def cmd_compare(args) -> int:
+    from .compare import main as compare_main
+    compare_main()
+    return 0
+
+
 def cmd_all(args) -> int:
     rc = cmd_stage_a(args)
     return rc or cmd_stage_c(args)
@@ -105,11 +111,13 @@ def main(argv=None) -> int:
     p_label.add_argument("--agreement", action="store_true",
                          help="report intra-rater agreement instead")
     sub.add_parser("stage-c", help="fuse, calibrate and write outputs")
+    sub.add_parser("compare", help="results.csv: predictions vs labels, with crops")
     sub.add_parser("all", help="stage-a then stage-c")
 
     args = ap.parse_args(argv)
     return {"stage-a": cmd_stage_a, "label": cmd_label,
-            "stage-c": cmd_stage_c, "all": cmd_all}[args.cmd](args)
+            "stage-c": cmd_stage_c, "compare": cmd_compare,
+            "all": cmd_all}[args.cmd](args)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,90 @@
+school_id,school_name,solar_present,solar_present_pred,solar_present_pred_confidence,solar_present_crop,solar_present_match,solar_area_m2,solar_area_m2_pred,solar_area_m2_pred_confidence,solar_area_m2_crop,solar_area_m2_match,portable_count,portable_count_pred,portable_count_pred_confidence,portable_count_crop,portable_count_match,fencing_extent,fencing_extent_pred,fencing_extent_pred_confidence,fencing_extent_crop,fencing_extent_match,fencing_type,fencing_type_pred,fencing_type_pred_confidence,fencing_type_crop,fencing_type_match,track_present,track_present_pred,track_present_pred_confidence,track_present_crop,track_present_match,field_count,field_count_pred,field_count_pred_confidence,field_count_crop,field_count_match,court_count,court_count_pred,court_count_pred_confidence,court_count_crop,court_count_match,pool_present,pool_present_pred,pool_present_pred_confidence,pool_present_crop,pool_present_match,score,summary
+010282001124,Wedowee Middle School,False,False,0.684,not found,true,0.0,0.0,0.684,not found,true,0,,0.112,not found,no_prediction,none,none,0.958,not found,true,other,,0.558,not found,false,False,False,0.684,not found,true,0,,0.112,not found,no_prediction,0,,0.112,not found,no_prediction,False,False,0.684,not found,true,5/9,nothing detected
+040963000996,Kofa High School,True,True,0.446,out/crops/040963000996_solar_present_1.jpg,true,6.0,75.5,0.446,out/crops/040963000996_solar_area_m2_1.jpg,false,0,1,0.605,out/crops/040963000996_portable_count_1.jpg,true,partial,partial,0.936,not found,true,,,0.427,not found,true,False,False,0.849,not found,true,5,5,0.605,out/crops/040963000996_field_count_1.jpg,true,1,1,0.605,out/crops/040963000996_court_count_1.jpg,true,False,False,0.849,not found,true,8/9,"solar - 76 m2
+portables - 1
+fields - 5
+courts - 1
+fencing - partial"
+,,,,,out/crops/040963000996_solar_present_2.jpg,,,,,out/crops/040963000996_solar_area_m2_2.jpg,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/040963000996_field_count_2.jpg,,,,,,,,,,,,,
+,,,,,out/crops/040963000996_solar_present_3.jpg,,,,,out/crops/040963000996_solar_area_m2_3.jpg,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/040963000996_field_count_3.jpg,,,,,,,,,,,,,
+,,,,,out/crops/040963000996_solar_present_4.jpg,,,,,out/crops/040963000996_solar_area_m2_4.jpg,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/040963000996_field_count_4.jpg,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/040963000996_field_count_5.jpg,,,,,,,,,,,,,
+060483000471,Beverly Hills High,False,True,0.635,out/crops/060483000471_solar_present_1.jpg,false,0.0,29.8,0.635,out/crops/060483000471_solar_area_m2_1.jpg,false,1,1,0.732,out/crops/060483000471_portable_count_1.jpg,true,none,none,0.959,not found,true,,,0.472,not found,true,True,True,0.87,out/crops/060483000471_track_present_1.jpg,true,1,3,0.732,out/crops/060483000471_field_count_1.jpg,false,8,10,0.732,out/crops/060483000471_court_count_1.jpg,false,True,True,0.876,out/crops/060483000471_pool_present_1.jpg,true,5/9,"solar - 30 m2
+portables - 1
+fields - 3
+courts - 10
+track
+pool"
+,,,,,out/crops/060483000471_solar_present_2.jpg,,,,,out/crops/060483000471_solar_area_m2_2.jpg,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_track_present_2.jpg,,,,,out/crops/060483000471_field_count_2.jpg,,,,,out/crops/060483000471_court_count_2.jpg,,,,,out/crops/060483000471_pool_present_2.jpg,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_field_count_3.jpg,,,,,out/crops/060483000471_court_count_3.jpg,,,,,out/crops/060483000471_pool_present_3.jpg,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_court_count_4.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_court_count_5.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_court_count_6.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_court_count_7.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_court_count_8.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_court_count_9.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060483000471_court_count_10.jpg,,,,,,,,
+061734009378,Cerra Vista Elementary,True,False,0.088,out/crops/061734009378_solar_present_1.jpg,false,2.0,0.0,0.088,out/crops/061734009378_solar_area_m2_1.jpg,false,11,0,0.718,not found,false,none,none,0.958,not found,true,,,0.496,not found,true,False,False,0.876,not found,true,1,1,0.718,out/crops/061734009378_field_count_1.jpg,true,0,0,0.589,not found,true,False,False,0.876,not found,true,6/9,fields - 1
+060001909278,Wells Middle,True,False,0.375,out/crops/060001909278_solar_present_1.jpg,false,3.0,0.0,0.375,out/crops/060001909278_solar_area_m2_1.jpg,false,1,0,0.668,not found,true,none,none,0.951,not found,true,,,0.493,not found,true,False,False,0.876,not found,true,0,0,0.576,not found,true,6,5,0.668,out/crops/060001909278_court_count_1.jpg,true,True,True,0.861,out/crops/060001909278_pool_present_1.jpg,true,7/9,"courts - 5
+pool"
+,,,,,out/crops/060001909278_solar_present_2.jpg,,,,,out/crops/060001909278_solar_area_m2_2.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060001909278_court_count_2.jpg,,,,,out/crops/060001909278_pool_present_2.jpg,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060001909278_court_count_3.jpg,,,,,out/crops/060001909278_pool_present_3.jpg,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060001909278_court_count_4.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/060001909278_court_count_5.jpg,,,,,,,,
+130333001308,Lincoln County Elementary School,False,False,0.669,not found,true,0.0,0.0,0.669,not found,true,0,,0.105,not found,no_prediction,none,,0.534,not found,no_prediction,,,0.534,not found,true,False,False,0.669,not found,true,0,,0.105,not found,no_prediction,0,,0.105,not found,no_prediction,False,False,0.669,not found,true,5/9,nothing detected
+160264000465,CLAUDE A WILCOX ELEMENTARY SCHOOL,False,False,0.675,not found,true,0.0,0.0,0.675,not found,true,0,0,0.678,not found,true,none,none,0.953,not found,true,,,0.497,not found,true,False,False,0.871,not found,true,0,0,0.56,not found,true,0,0,0.56,not found,true,False,False,0.871,not found,true,9/9,nothing detected
+160000100084,PRIEST RIVER LAMANNA HIGH,False,False,0.34,out/crops/160000100084_solar_present_1.jpg,true,0.0,0.0,0.34,out/crops/160000100084_solar_area_m2_1.jpg,true,2,1,0.663,out/crops/160000100084_portable_count_1.jpg,true,none,none,0.95,not found,true,,,0.486,not found,true,False,False,0.872,not found,true,1,1,0.663,out/crops/160000100084_field_count_1.jpg,true,0,0,0.562,not found,true,False,False,0.872,not found,true,9/9,"portables - 1
+fields - 1"
+,,,,,out/crops/160000100084_solar_present_2.jpg,,,,,out/crops/160000100084_solar_area_m2_2.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,out/crops/160000100084_solar_present_3.jpg,,,,,out/crops/160000100084_solar_area_m2_3.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,out/crops/160000100084_solar_present_4.jpg,,,,,out/crops/160000100084_solar_area_m2_4.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+180283000341,Zionsville Community High School,False,False,0.364,out/crops/180283000341_solar_present_1.jpg,true,0.0,0.0,0.364,out/crops/180283000341_solar_area_m2_1.jpg,true,0,0,0.631,not found,true,none,none,0.945,not found,true,,,0.455,not found,true,True,False,0.916,not found,false,1,1,0.631,out/crops/180283000341_field_count_1.jpg,true,0,0,0.605,not found,true,False,False,0.916,not found,true,8/9,fields - 1
+,,,,,out/crops/180283000341_solar_present_2.jpg,,,,,out/crops/180283000341_solar_area_m2_2.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,out/crops/180283000341_solar_present_3.jpg,,,,,out/crops/180283000341_solar_area_m2_3.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+240039000683,Bel Air High,False,False,0.326,out/crops/240039000683_solar_present_1.jpg,true,0.0,0.0,0.326,out/crops/240039000683_solar_area_m2_1.jpg,true,2,3,0.668,out/crops/240039000683_portable_count_1.jpg,true,partial,partial,0.948,not found,true,,,0.452,not found,true,True,True,0.84,out/crops/240039000683_track_present_1.jpg,true,6,7,0.668,out/crops/240039000683_field_count_1.jpg,true,6,8,0.668,out/crops/240039000683_court_count_1.jpg,false,False,False,0.859,not found,true,8/9,"portables - 3
+fields - 7
+courts - 8
+fencing - partial
+track"
+,,,,,out/crops/240039000683_solar_present_2.jpg,,,,,out/crops/240039000683_solar_area_m2_2.jpg,,,,,out/crops/240039000683_portable_count_2.jpg,,,,,,,,,,,,,,,,,,,,out/crops/240039000683_field_count_2.jpg,,,,,out/crops/240039000683_court_count_2.jpg,,,,,,,,
+,,,,,out/crops/240039000683_solar_present_3.jpg,,,,,out/crops/240039000683_solar_area_m2_3.jpg,,,,,out/crops/240039000683_portable_count_3.jpg,,,,,,,,,,,,,,,,,,,,out/crops/240039000683_field_count_3.jpg,,,,,out/crops/240039000683_court_count_3.jpg,,,,,,,,
+,,,,,out/crops/240039000683_solar_present_4.jpg,,,,,out/crops/240039000683_solar_area_m2_4.jpg,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/240039000683_field_count_4.jpg,,,,,out/crops/240039000683_court_count_4.jpg,,,,,,,,
+,,,,,out/crops/240039000683_solar_present_5.jpg,,,,,out/crops/240039000683_solar_area_m2_5.jpg,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/240039000683_field_count_5.jpg,,,,,out/crops/240039000683_court_count_5.jpg,,,,,,,,
+,,,,,out/crops/240039000683_solar_present_6.jpg,,,,,out/crops/240039000683_solar_area_m2_6.jpg,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/240039000683_field_count_6.jpg,,,,,out/crops/240039000683_court_count_6.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/240039000683_field_count_7.jpg,,,,,out/crops/240039000683_court_count_7.jpg,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/240039000683_court_count_8.jpg,,,,,,,,
+263039006679,Thompson Middle School,False,False,0.663,not found,true,0.0,0.0,0.663,not found,true,0,0,0.674,not found,true,none,none,0.949,not found,true,,,0.49,not found,true,False,False,0.663,not found,true,0,,0.098,not found,no_prediction,0,,0.098,not found,no_prediction,False,False,0.663,not found,true,7/9,nothing detected
+270543000204,Bertha Secondary,False,False,0.66,not found,true,0.0,0.0,0.66,not found,true,0,0,0.666,not found,true,none,,0.522,not found,no_prediction,,,0.522,not found,true,False,False,0.66,not found,true,0,,0.098,not found,no_prediction,0,,0.098,not found,no_prediction,False,False,0.66,not found,true,6/9,nothing detected
+330246000063,Rundlett Middle School,False,False,0.648,not found,true,0.0,0.0,0.648,not found,true,0,,0.086,not found,no_prediction,none,none,0.946,not found,true,,,0.466,not found,true,False,False,0.86,not found,true,5,5,0.653,out/crops/330246000063_field_count_1.jpg,true,0,0,0.547,not found,true,False,False,0.86,not found,true,8/9,fields - 5
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/330246000063_field_count_2.jpg,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/330246000063_field_count_3.jpg,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/330246000063_field_count_4.jpg,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/330246000063_field_count_5.jpg,,,,,,,,,,,,,
+341560004108,Spring Lake Heights Elementary School,False,False,0.664,not found,true,0.0,0.0,0.664,not found,true,0,5,0.713,out/crops/341560004108_portable_count_1.jpg,false,none,none,0.954,not found,true,,,0.481,not found,true,False,False,0.664,not found,true,0,,0.099,not found,no_prediction,0,,0.099,not found,no_prediction,False,False,0.664,not found,true,6/9,portables - 5
+,,,,,,,,,,,,,,,out/crops/341560004108_portable_count_2.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,out/crops/341560004108_portable_count_3.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,out/crops/341560004108_portable_count_4.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,out/crops/341560004108_portable_count_5.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+360008802312,PS 78 ANNE HUTCHINSON,False,False,0.633,not found,true,0.0,0.0,0.633,not found,true,3,3,0.64,out/crops/360008802312_portable_count_1.jpg,true,none,none,0.941,not found,true,,,0.458,not found,true,False,False,0.633,not found,true,0,,0.087,not found,no_prediction,0,,0.087,not found,no_prediction,False,False,0.633,not found,true,7/9,portables - 3
+,,,,,,,,,,,,,,,out/crops/360008802312_portable_count_2.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,out/crops/360008802312_portable_count_3.jpg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+390494903613,Adena Elementary School,False,False,0.509,not found,true,0.0,0.0,0.509,not found,true,0,0,0.496,not found,true,none,none,0.914,not found,true,other,,0.366,not found,false,False,False,0.778,not found,true,2,2,0.496,out/crops/390494903613_field_count_1.jpg,true,2,2,0.496,out/crops/390494903613_court_count_1.jpg,true,False,False,0.778,not found,true,8/9,"fields - 2
+courts - 2"
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/390494903613_field_count_2.jpg,,,,,out/crops/390494903613_court_count_2.jpg,,,,,,,,
+390458502363,Ridgeview Elementary School,False,False,0.679,not found,true,0.0,0.0,0.679,not found,true,0,1,0.674,out/crops/390458502363_portable_count_1.jpg,true,none,none,0.951,not found,true,,,0.504,not found,true,False,False,0.881,not found,true,0,1,0.674,out/crops/390458502363_field_count_1.jpg,true,0,1,0.674,out/crops/390458502363_court_count_1.jpg,true,False,False,0.881,not found,true,9/9,"portables - 1
+fields - 1
+courts - 1"
+402277001928,EMERSON ALTERNATIVE ED. (HS),False,False,0.623,not found,true,0.0,0.0,0.623,not found,true,1,1,0.614,out/crops/402277001928_portable_count_1.jpg,true,none,none,0.938,not found,true,,,0.441,not found,true,False,False,0.843,not found,true,0,0,0.51,not found,true,1,1,0.614,out/crops/402277001928_court_count_1.jpg,true,False,False,0.843,not found,true,9/9,"portables - 1
+courts - 1"
+401452000682,HILLDALE LOWER ES,False,False,0.635,not found,true,0.0,0.0,0.635,not found,true,2,1,0.648,out/crops/401452000682_portable_count_1.jpg,true,none,none,0.943,not found,true,,,0.458,not found,true,False,False,0.635,not found,true,0,,0.086,not found,no_prediction,0,,0.086,not found,no_prediction,False,False,0.635,not found,true,7/9,portables - 1
+421917006915,Pittsburgh Brashear HS,False,False,0.665,not found,true,0.0,0.0,0.665,not found,true,0,,0.102,not found,no_prediction,none,none,0.948,not found,true,,,0.493,not found,true,False,False,0.665,not found,true,0,,0.102,not found,no_prediction,3,,0.102,not found,no_prediction,False,False,0.665,not found,true,6/9,nothing detected
+421929000163,Pleasant Valley El Sch,False,False,0.664,not found,true,0.0,0.0,0.664,not found,true,0,,0.101,not found,no_prediction,none,none,0.948,not found,true,,,0.491,not found,true,False,False,0.664,not found,true,0,,0.101,not found,no_prediction,0,,0.101,not found,no_prediction,False,False,0.664,not found,true,6/9,nothing detected
+450387001491,India Hook Elementary,False,False,0.697,not found,true,0.0,0.0,0.697,not found,true,0,0,0.667,not found,true,partial,partial,0.959,not found,true,other,,0.549,not found,false,True,False,0.93,not found,false,1,1,0.667,out/crops/450387001491_field_count_1.jpg,true,2,1,0.667,out/crops/450387001491_court_count_1.jpg,true,False,False,0.93,not found,true,7/9,"fields - 1
+courts - 1
+fencing - partial"
+481455000943,COLEMAN H S,False,False,0.279,out/crops/481455000943_solar_present_1.jpg,true,0.0,0.0,0.279,out/crops/481455000943_solar_area_m2_1.jpg,true,0,0,0.658,not found,true,none,none,0.948,not found,true,,,0.484,not found,true,False,False,0.875,not found,true,2,2,0.658,out/crops/481455000943_field_count_1.jpg,true,2,2,0.658,out/crops/481455000943_court_count_1.jpg,true,False,False,0.875,not found,true,9/9,"fields - 2
+courts - 2"
+,,,,,out/crops/481455000943_solar_present_2.jpg,,,,,out/crops/481455000943_solar_area_m2_2.jpg,,,,,,,,,,,,,,,,,,,,,,,,,out/crops/481455000943_field_count_2.jpg,,,,,out/crops/481455000943_court_count_2.jpg,,,,,,,,
+481623001325,PAUL L DUNBAR LEARNING CENTER,False,True,0.71,out/crops/481623001325_solar_present_1.jpg,false,0.0,15.7,0.71,out/crops/481623001325_solar_area_m2_1.jpg,false,0,1,0.714,out/crops/481623001325_portable_count_1.jpg,true,none,none,0.958,not found,true,,,0.531,not found,true,False,False,0.742,not found,true,0,,0.11,not found,no_prediction,0,,0.11,not found,no_prediction,False,False,0.742,not found,true,5/9,"solar - 16 m2
+portables - 1"
+550957000382,Northside Intermediate,False,False,0.672,not found,true,0.0,0.0,0.672,not found,true,0,0,0.674,not found,true,none,none,0.952,not found,true,,,0.492,not found,true,False,False,0.87,not found,true,0,0,0.556,not found,true,0,0,0.556,not found,true,False,False,0.87,not found,true,9/9,nothing detected

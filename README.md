@@ -88,6 +88,26 @@ python -m src.tier1_gpu --task owl   --device cuda
 python -m src.run stage-c
 ```
 
+### Comparison report — predictions against the labels, with evidence crops
+
+```bash
+python -m src.run compare
+```
+
+Writes two views of the same table: for every school and field, the hand label,
+the prediction, its calibrated confidence, whether they matched, and the cropped
+image of the object that produced the detection. Where a field has several
+detections the extra crops become extra rows.
+
+- `out/results.csv` — paths to the crops in `out/crops/`.
+- `out/results.xlsx` — **the crops themselves, embedded in the cells**, with the
+  match columns shaded green/red. A CSV cell is text and cannot hold an image,
+  so this is the version to actually look at.
+
+Only two layers localise anything — OSM geometry and the classical CV
+detectors — so fields with no locatable object read `not found`. Fencing always
+does: it is a perimeter, not an object.
+
 ### On CARC, all three chained
 
 ```bash

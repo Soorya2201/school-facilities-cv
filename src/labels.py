@@ -34,10 +34,25 @@ LABEL_FIELDS = [
 _BOOL = {"true": True, "yes": True, "1": True, "y": True,
          "false": False, "no": False, "0": False, "n": False}
 
+_MISSING = ("na", "n/a", "null", "unknown")
+# "none" is a real answer for fencing extent -- the codebook's three categories
+# are full / partial / none -- so it is a missing-value sentinel everywhere
+# except here. Treating it as missing silently discards every unfenced campus,
+# which is most of them, and shrinks the field's n to the handful that are
+# fenced.
+_NONE_IS_A_VALUE = {"fencing_extent"}
 
-def _coerce(field: str, raw: str) -> Any:
+
+def coerce_field(field: str, raw: str) -> Any:
+    """Parse one CSV cell into the type the pipeline compares on.
+
+    Shared with `compare`, which reads predictions back out of measurements.csv:
+    a binary field round-trips as the string "False", and every non-empty string
+    is truthy, so scoring without this returns nonsense.
+    """
     raw = (raw or "").strip()
-    if raw == "" or raw.lower() in ("na", "n/a", "null", "none", "unknown"):
+    low = raw.lower()
+    if raw == "" or low in _MISSING or (low == "none" and field not in _NONE_IS_A_VALUE):
         return None
     if field in config.BINARY_FIELDS:
         return _BOOL.get(raw.lower())
@@ -64,7 +79,7 @@ def load_truth(path: Optional[Path] = None) -> Dict[str, Dict[str, Any]]:
             sid = (row.get("school_id") or "").strip()
             if not sid:
                 continue
-            out[sid] = {f: _coerce(f, row.get(f, "")) for f in LABEL_FIELDS
+            out[sid] = {f: coerce_field(f, row.get(f, "")) for f in LABEL_FIELDS
                         if f != "label_notes"}
             out[sid]["label_notes"] = row.get("label_notes", "")
     return out

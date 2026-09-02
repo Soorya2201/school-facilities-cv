@@ -18,7 +18,7 @@ from __future__ import annotations
 from typing import Any, Dict, List
 
 from . import config, osm
-from .geo import (Ring, min_distance_to_lines, min_rotated_rect,
+from .geo import (Ring, bbox_of_ring, min_distance_to_lines, min_rotated_rect,
                   point_in_polygon, polygon_area_m2, polygon_centroid,
                   rectangularity, sample_ring)
 
@@ -46,6 +46,13 @@ def _signal(value: Any, source: str, evidence: Any, present: bool,
     """
     return {"value": value, "source": source, "evidence": evidence,
             "osm_present": present, "note": note}
+
+
+def _geom(g: Ring) -> Dict[str, Any]:
+    """Where an object is, in lon/lat, so `compare` can crop the pixels it came from."""
+    lon, lat = polygon_centroid(g)
+    return {"centroid": [round(lon, 7), round(lat, 7)],
+            "bounds": [round(v, 7) for v in bbox_of_ring(g)]}
 
 
 def _on_campus(el: Dict[str, Any], ring: Ring) -> bool:
@@ -101,7 +108,7 @@ def portables(ring: Ring, buildings: List[Dict[str, Any]]) -> Dict[str, Any]:
             candidates.append({
                 "area_m2": round(area), "aspect": round(aspect, 2),
                 "rect": round(rect, 2), "dims_m": [round(lo, 1), round(sh, 1)],
-                "tag": tags.get("building"),
+                "tag": tags.get("building"), **_geom(g),
             })
 
     evidence = {"buildings_on_campus": on_campus, "candidates": candidates}
@@ -134,22 +141,22 @@ def athletics(ring: Ring, leisure: List[Dict[str, Any]]) -> Dict[str, Dict[str, 
         n_features += 1
 
         if kind == "track" or sport in TRACK_SPORTS:
-            tracks.append({"area_m2": round(area), "sport": sport})
+            tracks.append({"area_m2": round(area), "sport": sport, **_geom(g)})
         elif kind == "swimming_pool" or sport == "swimming":
             if config.POOL_AREA_MIN_M2 <= area <= config.POOL_AREA_MAX_M2 or kind == "swimming_pool":
-                pools.append({"area_m2": round(area)})
+                pools.append({"area_m2": round(area), **_geom(g)})
         elif kind == "pitch":
             # A single huge "pitch" polygon is usually the whole athletic
             # complex drawn as one shape, not one field. Counting it as a field
             # is fine; counting it as several would be wrong.
             if area > config.PITCH_AREA_MAX_M2:
                 fields.append({"area_m2": round(area), "sport": sport,
-                               "note": "oversize_complex"})
+                               "note": "oversize_complex", **_geom(g)})
             elif sport in COURT_SPORTS or (COURT_AREA_MIN_M2 <= area <= COURT_AREA_MAX_M2
                                            and sport not in FIELD_SPORTS):
-                courts.append({"area_m2": round(area), "sport": sport})
+                courts.append({"area_m2": round(area), "sport": sport, **_geom(g)})
             elif area >= config.FULL_SIZE_FIELD_MIN_M2 or sport in FIELD_SPORTS:
-                fields.append({"area_m2": round(area), "sport": sport})
+                fields.append({"area_m2": round(area), "sport": sport, **_geom(g)})
 
     has_data = n_features > 0
     note = "" if has_data else "no mapped leisure features on campus"

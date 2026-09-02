@@ -70,11 +70,14 @@ def _components(mask: np.ndarray, mpp: float, min_area_m2: float,
         h_m = stats[i, cv2.CC_STAT_HEIGHT] * mpp
         fill = stats[i, cv2.CC_STAT_AREA] / max(
             1.0, stats[i, cv2.CC_STAT_WIDTH] * stats[i, cv2.CC_STAT_HEIGHT])
+        x0, y0 = int(stats[i, cv2.CC_STAT_LEFT]), int(stats[i, cv2.CC_STAT_TOP])
         out.append({
             "area_m2": round(area_m2, 1),
             "w_m": round(w_m, 1), "h_m": round(h_m, 1),
             "fill": round(float(fill), 3),
             "cx": float(cents[i][0]), "cy": float(cents[i][1]),
+            "bbox_px": [x0, y0, x0 + int(stats[i, cv2.CC_STAT_WIDTH]),
+                        y0 + int(stats[i, cv2.CC_STAT_HEIGHT])],
         })
     out.sort(key=lambda d: -d["area_m2"])
     return out
@@ -155,10 +158,12 @@ def detect_track(bgr: np.ndarray, mask: np.ndarray, mpp: float) -> Dict[str, Any
             score += 0.30 * max(0.0, 1.0 - abs(perim_m - config.TRACK_PERIMETER_M) / 200.0)
             score += 0.35 if 1.4 <= aspect <= 2.6 else 0.0
             score += 0.35 if 0.15 <= band_ratio <= 0.50 else 0.0
+            bx, by, bw, bh = cv2.boundingRect(cnt)
             cand = {"perimeter_m": round(perim_m), "outer_area_m2": round(outer_m2),
                     "infield_m2": round(hole_m2), "band_ratio": round(band_ratio, 3),
                     "long_m": round(long_m), "short_m": round(short_m),
-                    "aspect": round(aspect, 2), "score": round(score, 3)}
+                    "aspect": round(aspect, 2), "score": round(score, 3),
+                    "bbox_px": [int(bx), int(by), int(bx + bw), int(by + bh)]}
             if best is None or score > best["score"]:
                 best = cand
 
@@ -213,10 +218,12 @@ def detect_solar(bgr: np.ndarray, mask: np.ndarray, mpp: float) -> Dict[str, Any
         mean_b, mean_g, mean_r = cv2.mean(bgr, mask=comp_mask)[:3]
         if mean_b <= mean_r + 4.0:
             continue
+        bx, by, bw, bh = cv2.boundingRect(cnt)
         panels.append({"area_m2": round(area_m2, 1),
                        "rect": round(float(rectangularity), 2),
                        "blueness": round(float(mean_b - mean_r), 1),
-                       "dims_m": [round(long_m, 1), round(short_m, 1)]})
+                       "dims_m": [round(long_m, 1), round(short_m, 1)],
+                       "bbox_px": [int(bx), int(by), int(bx + bw), int(by + bh)]})
         total += area_m2
     panels.sort(key=lambda d: -d["area_m2"])
     return {
