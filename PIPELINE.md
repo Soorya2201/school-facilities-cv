@@ -12,14 +12,14 @@ This is not "some of each to hedge." Each layer does what the other physically c
 
 | Capability | Free API | Open weights on your GPU |
 |---|---|---|
-| Frontier-grade semantic judgment ("portable or storage shed?") | ✅ **best** | ✗ a 32B model is weaker here |
-| **Segmentation masks / per-pixel probabilities** | ✗ impossible | ✅ **only source** |
-| **Detector logits** (OWLv2 / G-DINO scores) | ✗ | ✅ **only source** |
-| **High-volume TTA** (8 dihedral views × 25 × 6 = 1,200 passes) | ✗ blows the daily quota | ✅ free and unlimited |
-| **Token logprobs** → `P("yes")` not "0.9" | ⚠️ *sometimes* — see §2c | ✅ always |
-| Zero setup for a grader with no GPU | ✅ | ✗ |
-| Instant iteration (no SLURM queue) | ✅ **decisive during the 5-hour box** | ✗ 20–40 min queue per test |
-| Determinism / pinned versions | ✗ model silently updates | ✅ |
+| Frontier-grade semantic judgment ("portable or storage shed?") | Yes, **best** | No: a 32B model is weaker here |
+| **Segmentation masks / per-pixel probabilities** | No, impossible | Yes, **only source** |
+| **Detector logits** (OWLv2 / G-DINO scores) | No | Yes, **only source** |
+| **High-volume TTA** (8 dihedral views × 25 × 6 = 1,200 passes) | No: blows the daily quota | Yes: free and unlimited |
+| **Token logprobs** → `P("yes")` not "0.9" | Partly, *sometimes* — see §2c | Yes: always |
+| Zero setup for a grader with no GPU | Yes | No |
+| Instant iteration (no SLURM queue) | Yes, **decisive during the 5-hour box** | No: 20–40 min queue per test |
+| Determinism / pinned versions | No: model silently updates | Yes |
 
 **The split that falls out of this:**
 
@@ -67,7 +67,7 @@ Two consequences worth stating in the memo:
 
 | Source | Verified this session |
 |---|---|
-| **Overpass / OSM** | ✅ returned campus polygon **48,076 m²**, 2× `leisure=pitch`, a `barrier=fence` way, 207 buildings incl. **6 at 128–139 m²** (portable-sized) |
+| **Overpass / OSM** | Yes: returned campus polygon **48,076 m²**, 2× `leisure=pitch`, a `barrier=fence` way, 207 buildings incl. **6 at 128–139 m²** (portable-sized) |
 | **Overture Maps** via DuckDB spatial | bbox-filtered remote GeoParquet — no bulk download |
 | **MS US Building Footprints** | 129 M polygons, ODbL — rural gap-fill where OSM is empty |
 
@@ -121,9 +121,9 @@ Two consequences worth stating in the memo:
 
 | Source | Verified | Role |
 |---|---|---|
-| **Esri World Imagery** `/World_Imagery/MapServer/export` | ✅ arbitrary bbox → 1024×1024 JPEG, no key. Test pull resolved individual cars, rooftop HVAC, backyard pools | **Primary** |
-| **Esri Wayback** | ✅ **196 dated releases, 2014-06 → 2026-08**, keyless | **Vintage + temporal bonus** |
-| **NAIP** | ✅ keyless 0.6 m; catalog exposes exact `acquisition_date` (pulled e.g. `2023-05-27`). ⚠️ `exportImage` 502'd once | 3rd view; date truth; **NIR → canopy occlusion** |
+| **Esri World Imagery** `/World_Imagery/MapServer/export` | Yes: arbitrary bbox → 1024×1024 JPEG, no key. Test pull resolved individual cars, rooftop HVAC, backyard pools | **Primary** |
+| **Esri Wayback** | Yes, **196 dated releases, 2014-06 → 2026-08**, keyless | **Vintage + temporal bonus** |
+| **NAIP** | Yes: keyless 0.6 m; catalog exposes exact `acquisition_date` (pulled e.g. `2023-05-27`). Caveat: `exportImage` 502'd once | 3rd view; date truth; **NIR → canopy occlusion** |
 
 ---
 
@@ -160,7 +160,7 @@ export HF_HOME=/scratch1/$USER/hf HF_HUB_OFFLINE=1
 
 **CARC specifics that bite:** `$HOME` quota is small — weights and cache go in `/scratch1/$USER` (mind the ~30-day purge). Load `conda`/`cuda` modules explicitly; pin the torch/CUDA pair to the module tree.
 
-> ⚠️ **The grader has neither an A100 nor necessarily your API keys.** This is a live risk to criterion #1 ("we will check out your code and execute it"). **Mitigation: commit `preds/*.jsonl`.** Then `python -m src.run --offline` recomputes fusion → calibration → `measurements.csv` on any laptop in seconds, no GPU, no keys, no network. The GPU stage reproduces on CARC; the *result* reproduces anywhere. **Lead the README with this.**
+> **Note: The grader has neither an A100 nor necessarily your API keys.** This is a live risk to criterion #1 ("we will check out your code and execute it"). **Mitigation: commit `preds/*.jsonl`.** Then `python -m src.run --offline` recomputes fusion → calibration → `measurements.csv` on any laptop in seconds, no GPU, no keys, no network. The GPU stage reproduces on CARC; the *result* reproduces anywhere. **Lead the README with this.**
 
 ---
 
@@ -182,7 +182,7 @@ Per school: campus overview (polygon + 15% margin), 2× building crops at high z
 - **Alternative:** stitch XYZ tiles at fixed z=19/20 → exact, auditable m/px. **Fallback:** Wayback → NAIP.
 - **Foolproofing:** cache key `sha1(bbox|zoom|source|date)`; commit the cache.
 
-> ⚠️ **The silent killer: metres-per-pixel.** `m/px = 156543.03392·cos(lat)/2^zoom`, halved again for retina tiles. Wrong → every solar area off by 2× or 4× **with no error raised**. **Mitigation: known-size objects as an in-image scale bar** — track 400 m, tennis court 23.77×10.97 m, basketball 28×15 m. Assert within 10%, fail loudly. Also assert bbox aspect ratio matches pixel aspect (catches EPSG:3857↔4326 mix-ups).
+> **Note: The silent killer: metres-per-pixel.** `m/px = 156543.03392·cos(lat)/2^zoom`, halved again for retina tiles. Wrong → every solar area off by 2× or 4× **with no error raised**. **Mitigation: known-size objects as an in-image scale bar** — track 400 m, tennis court 23.77×10.97 m, basketball 28×15 m. Assert within 10%, fail loudly. Also assert bbox aspect ratio matches pixel aspect (catches EPSG:3857↔4326 mix-ups).
 
 ### Step 3A — Rooftop solar (present/absent + area m²)
 **Never ask a model for square metres.** Get a *mask*; convert with your own verified geometry.
@@ -238,7 +238,7 @@ Most tractable — use it to show the calibration machinery working.
 
 > **Why feature #9 matters for foolproofing:** free tiers can throttle or vanish mid-run. Because `n_sources_available` is a *feature*, losing a source makes confidence drop **honestly and automatically** rather than silently. The architecture degrades correctly by construction.
 
-> ⚠️ **Leakage.** Fitting calibration on the same 25 schools you report accuracy on inflates every number. **Fit and evaluate under leave-one-school-out CV, and say so.** This single point will separate the submission from the field.
+> **Note: Leakage.** Fitting calibration on the same 25 schools you report accuracy on inflates every number. **Fit and evaluate under leave-one-school-out CV, and say so.** This single point will separate the submission from the field.
 
 **Report:** reliability diagram (5 bins), **ECE**, **Brier**, and a **coverage–accuracy curve** — *"at 100% coverage accuracy is X; flagging the lowest-confidence 30% raises accuracy on the rest to Y."* That answers the prompt's own framing in its own words. Emit `flag_for_review`. **Abstention is a feature.**
 
