@@ -1,10 +1,33 @@
 # School Facilities from Imagery
 
-Measures four attributes for 25 US public schools from overhead imagery, with a
-**calibrated confidence on every field**, and reports how well those confidences
-track the actual error rate.
+**Measures solar panels, portable classrooms, perimeter fencing and athletic facilities for 25 US public schools from free overhead imagery. Every field carries a calibrated confidence, and the README reports how well those confidences track the actual error rate.**
 
-Everything is free and keyless. No paid API is used anywhere in the pipeline.
+Everything is free and keyless: no paid API anywhere in the pipeline. Built as a take-home for USC Dornsife.
+
+## Results
+
+All numbers are out-of-fold under **leave-one-school-out cross-validation** against hand labels made before any model output existed. Reproduce them with one offline command (below).
+
+| Metric | Value |
+|---|---|
+| Field observations | 225 (9 fields × 25 schools) |
+| Accuracy, all predictions | **76.9%** (95% CI 71.0–81.9) |
+| Accuracy, top 80% by confidence | **91.7%** (95% CI 86.7–94.9) |
+| Expected calibration error / Brier score | 0.201 / 0.131 |
+| Accuracy when confidence ≥ 0.8 | 96.1% (n = 51) |
+| Accuracy when confidence < 0.2 | 3.7% (n = 27) |
+
+Confidence separates right from wrong: discarding the least-confident 20% of answers lifts accuracy from 77% to 92%.
+
+| Field | Accuracy | | Field | Accuracy |
+|---|---:|---|---|---:|
+| Pool present | 25/25 | | Solar present | 19/25 |
+| Track present | 23/25 | | Portable classroom count | 18/25 |
+| Fencing extent | 23/25 | | Solar area (m²) | 16/25 |
+| Fencing type | 22/25 | | Field count | 14/25 |
+| | | | Court count | 13/25 |
+
+**What produced these numbers:** the committed run uses the two deterministic layers (OpenStreetMap geometry and classical CV) plus the calibrator. The open-weight GPU layer (OWLv2, SAM2, BDAPPV, Qwen3-VL) and the free-tier API layer are implemented but were not part of this run (`api_status` in `out/metrics.json`). They add independent evidence; the calibrator is designed to absorb them without code changes.
 
 ---
 
@@ -216,13 +239,17 @@ preds/           per-source raw predictions (committed)
 
 ## Known limitations
 
-These are measured, not hypothetical — see `memo.pdf` for the numbers.
+Measured numbers are in `out/metrics.json`; the write-up template is `memo_template.md`.
 
-- **Perimeter fencing is the weakest field, for a physical reason.** Chain-link
-  is ~2 mm wire at 0.3–0.6 m/px: it is below the resolution limit of nadir
-  imagery at any model quality. OSM is the only source that sees fence
-  *material*, and its fence-mapping recall is low. Fencing confidence is
-  systematically the lowest of the four fields, and that is correct.
+- **Counting is the weakest task.** Court counts (13/25) and field counts (14/25)
+  are hardest, most likely because adjacent courts merge at 0.3–0.6 m/px and
+  multi-use fields have ambiguous boundaries. Presence/absence fields are much easier (pool 25/25,
+  track 23/25).
+- **Fencing can't be seen directly.** Chain-link is ~2 mm wire at 0.3–0.6 m/px,
+  below the resolution limit of nadir imagery at any model quality. Extent and
+  type still scored 23/25 and 22/25, likely because they lean on OSM barrier tags
+  and campus geometry rather than from seeing the wire. Fence *material* is only
+  as good as OSM's mapping coverage, which is low in most places.
 - **Imagery resolution varies by location.** Esri enforces a per-location
   resolution ceiling and hard-fails below it: measured 0.26 m/px in rural
   Alabama versus 0.156 m/px in Los Angeles. The pipeline steps down its
